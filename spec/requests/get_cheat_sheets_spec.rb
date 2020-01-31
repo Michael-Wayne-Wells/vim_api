@@ -7,4 +7,4 @@ describe "get all cheat sheets route" do
     expect(JSON.parse(response.body).size).to eq(40)
   end
 
-end
+ end

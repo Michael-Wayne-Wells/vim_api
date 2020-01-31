@@ -3,12 +3,16 @@ class CheatSheetsController < ApplicationController
 
   # GET /cheat_sheets
   def index
-    @cheat_sheets = CheatSheet.all
-
+    search = params[:search]
+    @cheat_sheets = CheatSheet.search(search)
     render json: @cheat_sheets
   end
 
-  # GET /cheat_sheets/1
+  def random
+    @random = CheatSheet.random
+    render json: @random
+  end
+
   def show
     render json: @cheat_sheet
   end
@@ -46,6 +50,6 @@ class CheatSheetsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def cheat_sheet_params
-      params.permit(:key_stroke, :result)
+      params.permit(:search,:key_stroke, :result)
     end
 end
