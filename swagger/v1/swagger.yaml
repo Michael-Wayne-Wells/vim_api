@@ -12,33 +12,20 @@ paths:
           description: successful
     post:
       summary: create cheat_sheet
-      responses:
-        '200':
-          description: successful
-  "/cheat_sheets/{id}":
-    parameters:
-    - name: id
-      in: path
-      type: string
-      description: id
-      required: true
-    get:
-      summary: show cheat_sheet
-      responses:
-        '200':
-          description: successful
-    patch:
-      summary: update cheat_sheet
-      responses:
-        '200':
-          description: successful
-    put:
-      summary: update cheat_sheet
-      responses:
-        '200':
-          description: successful
-    delete:
-      summary: delete cheat_sheet
+      consumes:
+      - application/json
+      parameters:
+      - in: body
+        schema:
+          type: object
+          properties:
+            key_stroke:
+              type: string
+            result:
+              type: string
+          required:
+          - key_stroke
+          - result
       responses:
         '200':
           description: successful
