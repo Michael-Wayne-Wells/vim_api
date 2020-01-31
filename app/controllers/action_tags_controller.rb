@@ -46,6 +46,6 @@ class ActionTagsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def action_tag_params
-      params.require(:action_tag).permit(:name)
+      params.permit(:name)
     end
 end
