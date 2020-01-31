@@ -29,6 +29,27 @@ paths:
       responses:
         '200':
           description: successful
+  "/cheat_sheets/23":
+    get:
+      summary: show cheat_sheet
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update cheat_sheet
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update cheat_sheet
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete cheat_sheet
+      responses:
+        '200':
+          description: successful
   "/random":
     get:
       summary: random cheat_sheet

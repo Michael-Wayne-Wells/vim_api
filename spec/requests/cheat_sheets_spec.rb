@@ -2,7 +2,6 @@ require 'swagger_helper'
 
 RSpec.describe 'cheat_sheets', type: :request do
 
-    @new_command = CheatSheet.create(:key_stroke => "j", :result => "down")
 
 
   path '/cheat_sheets' do
@@ -36,55 +35,55 @@ RSpec.describe 'cheat_sheets', type: :request do
       end
     end
   end
+  path "/cheat_sheets/23" do
 
-  # path '/cheat_sheets/{id}' do
-  #   parameter name: :id, :in => :path, :type => :string
-  #   let(:id) { @new_command.id }
-  #
-  #   get('show cheat_sheet') do
-  #     response(200, 'successful') do
+
+    get('show cheat_sheet') do
+      response(200, 'successful') do
   #
   #
-  #       after do |example|
-  #         example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
-  #       end
-  #       run_test!
-  #     end
-  #   end
+        after do |example|
+          example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
+        end
+        run_test!
+      end
+    end
+  
+
   #
-  #   patch('update cheat_sheet') do
-  #     response(200, 'successful') do
+    patch('update cheat_sheet') do
+      response(200, 'successful') do
+
+
+        after do |example|
+          example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
+        end
+        run_test!
+      end
+    end
+
+    put('update cheat_sheet') do
+      response(200, 'successful') do
+
+
+        after do |example|
+          example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
+        end
+        run_test!
+      end
+    end
   #
-  #
-  #       after do |example|
-  #         example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
-  #       end
-  #       run_test!
-  #     end
-  #   end
-  #
-  #   put('update cheat_sheet') do
-  #     response(200, 'successful') do
-  #
-  #
-  #       after do |example|
-  #         example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
-  #       end
-  #       run_test!
-  #     end
-  #   end
-  #
-  #   delete('delete cheat_sheet') do
-  #     response(200, 'successful') do
-  #
-  #
-  #       after do |example|
-  #         example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
-  #       end
-  #       run_test!
-  #     end
-  #   end
-  # end
+    delete('delete cheat_sheet') do
+      response(200, 'successful') do
+
+
+        after do |example|
+          example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
+        end
+        run_test!
+      end
+    end
+  end
 
   path '/random' do
 
