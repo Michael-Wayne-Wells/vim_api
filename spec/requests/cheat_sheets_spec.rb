@@ -6,13 +6,13 @@ RSpec.describe 'cheat_sheets', type: :request do
 
     get('list cheat_sheets') do
       response(200, 'successful') do
-        get summary: "fetch list" do
-      
-      response 200, description: "successful"
-    end
-  end
+
+        after do |example|
+          example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
+        end
+        run_test!
       end
-   
+    end
 
     post('create cheat_sheet') do
       response(200, 'successful') do
@@ -20,6 +20,7 @@ RSpec.describe 'cheat_sheets', type: :request do
         after do |example|
           example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
         end
+        run_test!
       end
     end
   end
