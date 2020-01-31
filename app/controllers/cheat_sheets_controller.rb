@@ -46,6 +46,6 @@ class CheatSheetsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def cheat_sheet_params
-      params.require(:cheat_sheet).permit(:key_stroke, :result)
+      params.permit(:key_stroke, :result)
     end
 end
