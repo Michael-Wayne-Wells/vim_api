@@ -13,9 +13,12 @@ paths:
     post:
       summary: create cheat_sheet
       consumes:
-      - application/json
+      - form-data
+      produces:
+      - form-data
       parameters:
-      - in: body
+      - name: params
+        in: form_data
         schema:
           type: object
           properties:
@@ -37,6 +40,8 @@ paths:
           description: successful
     patch:
       summary: update cheat_sheet
+      consumes:
+      - application/json
       responses:
         '200':
           description: successful

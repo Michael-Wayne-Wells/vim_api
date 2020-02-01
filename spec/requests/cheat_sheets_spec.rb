@@ -17,8 +17,9 @@ RSpec.describe 'cheat_sheets', type: :request do
     end
 
     post('create cheat_sheet') do
-      consumes 'application/json'
-      parameter in: :body, schema: {
+      consumes 'form-data'
+      produces 'form-data'
+      parameter name: :params, in: :form_data, schema: {
         type: :object,
         properties: {
           key_stroke: { type: :string },
@@ -48,12 +49,13 @@ RSpec.describe 'cheat_sheets', type: :request do
         run_test!
       end
     end
-  
+
 
   #
     patch('update cheat_sheet') do
-      response(200, 'successful') do
+      consumes 'application/json'
 
+      response(200, 'successful') do
 
         after do |example|
           example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
