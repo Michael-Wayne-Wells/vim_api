@@ -10,23 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_31_173831) do
+ActiveRecord::Schema.define(version: 2020_02_01_010325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "action_tags", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "action_tags_cheat_sheets", id: false, force: :cascade do |t|
-    t.bigint "action_tag_id"
-    t.bigint "cheat_sheet_id"
-    t.index ["action_tag_id"], name: "index_action_tags_cheat_sheets_on_action_tag_id"
-    t.index ["cheat_sheet_id"], name: "index_action_tags_cheat_sheets_on_cheat_sheet_id"
-  end
 
   create_table "cheat_sheets", force: :cascade do |t|
     t.string "key_stroke"
