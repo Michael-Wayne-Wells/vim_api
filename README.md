@@ -78,21 +78,17 @@ _If you have any issues with the program or want to reach out, email [mwells1286
 _This program utilized:_
 * _RUBY 2.6.5_
 * _Rails 5.2.4_
-
 * _Rubocop_
-* _Devise_
-* _ActiveAdmin_
 * _faker_
 * _rspec_
-* _capybara_
-* _bootstrap_
-* _kaminari_
 * _shoulda-matchers_
-* _HTML_
 * _postgres_
-* _sass_
+* _postman_
+* _rswag_
+* _swagger_
 
-_and was built on Atom_
+
+_and was built on Vim_
 
 ### License
 
