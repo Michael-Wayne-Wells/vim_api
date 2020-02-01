@@ -6,7 +6,7 @@ info:
 paths:
   "/cheat_sheets":
     get:
-      summary: search for cheat_sheet
+      summary: return all or search for cheat_sheet
       consumes:
       - application/json
       produces:
@@ -41,7 +41,7 @@ paths:
       responses:
         '200':
           description: successful
-  "/cheat_sheets/25":
+  "/cheat_sheets/4":
     get:
       summary: show cheat_sheet
       responses:

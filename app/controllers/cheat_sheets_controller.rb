@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CheatSheetsController < ApplicationController
-  before_action :set_cheat_sheet, only: [:show, :update, :destroy]
+  before_action :set_cheat_sheet, only: %i[show update destroy]
 
   # GET /cheat_sheets
   def index
@@ -43,13 +45,14 @@ class CheatSheetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cheat_sheet
-      @cheat_sheet = CheatSheet.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def cheat_sheet_params
-      params.permit(:search,:key_stroke, :result)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cheat_sheet
+    @cheat_sheet = CheatSheet.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def cheat_sheet_params
+    params.permit(:search, :key_stroke, :result)
+  end
 end
