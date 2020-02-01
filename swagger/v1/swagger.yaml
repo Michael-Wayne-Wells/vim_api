@@ -6,7 +6,19 @@ info:
 paths:
   "/cheat_sheets":
     get:
-      summary: list cheat_sheets
+      summary: search for cheat_sheet
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: search
+        in: query
+        schema:
+          type: object
+          properties:
+            search:
+              type: string
       responses:
         '200':
           description: successful
@@ -29,7 +41,7 @@ paths:
       responses:
         '200':
           description: successful
-  "/cheat_sheets/23":
+  "/cheat_sheets/25":
     get:
       summary: show cheat_sheet
       responses:
