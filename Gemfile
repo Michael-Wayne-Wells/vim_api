@@ -39,8 +39,6 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'rspec-rails-swagger'
-  gem 'rswag'
-  gem 'simplecov', require: false
 end
 gem 'rswag'
 group :test do
