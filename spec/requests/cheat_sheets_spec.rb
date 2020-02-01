@@ -17,15 +17,16 @@ RSpec.describe 'cheat_sheets', type: :request do
     end
 
     post('create cheat_sheet') do
-      consumes 'form-data'
-      produces 'form-data'
-      parameter name: :params, in: :form_data, schema: {
+      consumes 'application/json'
+      produces 'application/json'
+      parameter name: :data,
+      in: :query,
+      schema: {
         type: :object,
         properties: {
           key_stroke: { type: :string },
           result: { type: :string }
         },
-        required: [ 'key_stroke', 'result' ]
       }
       response(200, 'successful') do
 
@@ -41,8 +42,8 @@ RSpec.describe 'cheat_sheets', type: :request do
 
     get('show cheat_sheet') do
       response(200, 'successful') do
-  #
-  #
+        #
+        #
         after do |example|
           example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
         end
@@ -51,9 +52,19 @@ RSpec.describe 'cheat_sheets', type: :request do
     end
 
 
-  #
+    #
     patch('update cheat_sheet') do
       consumes 'application/json'
+      produces 'application/json'
+      parameter name: :data,
+                in: :query,
+                schema: {
+        type: :object,
+        properties: {
+          key_stroke: { type: :string },
+          result: { type: :string }
+        },
+      }
 
       response(200, 'successful') do
 
@@ -64,17 +75,7 @@ RSpec.describe 'cheat_sheets', type: :request do
       end
     end
 
-    put('update cheat_sheet') do
-      response(200, 'successful') do
-
-
-        after do |example|
-          example.metadata[:response][:examples] = { 'application/json' => JSON.parse(response.body, symbolize_names: true) }
-        end
-        run_test!
-      end
-    end
-  #
+  
     delete('delete cheat_sheet') do
       response(200, 'successful') do
 

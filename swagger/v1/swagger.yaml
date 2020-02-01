@@ -13,12 +13,12 @@ paths:
     post:
       summary: create cheat_sheet
       consumes:
-      - form-data
+      - application/json
       produces:
-      - form-data
+      - application/json
       parameters:
-      - name: params
-        in: form_data
+      - name: data
+        in: query
         schema:
           type: object
           properties:
@@ -26,9 +26,6 @@ paths:
               type: string
             result:
               type: string
-          required:
-          - key_stroke
-          - result
       responses:
         '200':
           description: successful
@@ -42,11 +39,18 @@ paths:
       summary: update cheat_sheet
       consumes:
       - application/json
-      responses:
-        '200':
-          description: successful
-    put:
-      summary: update cheat_sheet
+      produces:
+      - application/json
+      parameters:
+      - name: data
+        in: query
+        schema:
+          type: object
+          properties:
+            key_stroke:
+              type: string
+            result:
+              type: string
       responses:
         '200':
           description: successful

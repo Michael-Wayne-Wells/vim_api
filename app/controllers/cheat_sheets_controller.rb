@@ -39,7 +39,7 @@ class CheatSheetsController < ApplicationController
 
   # DELETE /cheat_sheets/1
   def destroy
-    @cheat_sheet.destroy
+    @cheat_sheet.delete
   end
 
   private
